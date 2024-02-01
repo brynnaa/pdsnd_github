@@ -19,7 +19,7 @@ def get_filters():
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     #while loop that breaks when user enters a valid city name
     # .lower() to convert user input to all lowercase
-    
+
     while True:
         city = input("\nWhich city would you like to filter by? new york city, chicago, or washington?\n").lower()
         if city not in ('new york city', 'chicago', 'washington'):
@@ -28,7 +28,7 @@ def get_filters():
         # if an invalid city is entered a statement is printed prompting user to retype city name
         else:
             break
-          
+
 
     # TO DO: get user input for month (all, january, february, ... , june)
     # list variables months defined the available months for user to type
@@ -43,8 +43,8 @@ def get_filters():
             continue
         else:
             break
-              
-              
+
+
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)\
     #days list variable defining available days for user to input
@@ -60,7 +60,7 @@ def get_filters():
             continue
         else:
             break
-        
+
     print('-'*40)
     return city, month, day
 
@@ -92,7 +92,7 @@ def load_data(city, month, day):
         #day filter
     if day != 'all':
         df = df[df['day'] == day.title()]
-        
+
 
     return df
 
@@ -139,7 +139,7 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     combination_stations = df['Start Station'] + "to" + df['End Station']
     combination_stations_popular = combination_stations.mode()[0]
-    print('Most Common Combination of Start and End Stations : \n', combination_stations_popular)
+    print('Most Common Combination of Start and End Stations (Start to End): \n', combination_stations_popular)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -158,9 +158,9 @@ def trip_duration_stats(df):
     print('Total Travel Time = {:} hours'.format(int(total_travel_time / 3600)))
 
     # TO DO: display mean travel time
-    average_travel_time = df['Trip Duration'].mean()
-    print('Average Travel Time = {} minutes'.format(int(average_travel_time/60)))
-    
+    avg_travel_time = df['Trip Duration'].mean()
+    print('Average Travel Time = {} minutes'.format(int(avg_travel_time/60)))
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -202,27 +202,27 @@ def display_data(df):
             if raw_data=='yes':
                 start=0
                 end=6
-                print(df.iloc[start:end])               
-            break     
+                print(df.iloc[start:end])
+            break
         else:
             print('please try again :)')
-    if  raw_data=='yes':       
+    if  raw_data=='yes':
             while True:
-                raw_data_2= input("Would you like to see five more rows? Type 'yes' or 'no'\n").lower()
+                raw_data_2= input("Would you like to see five additional rows of data? Type 'yes' or 'no'\n").lower()
                 if raw_data_2 in choices:
                     if raw_data_2=='yes':
                         start+=5
                         end+=5
                         print(df.iloc[start:end])
-                       
-                    else:    
-                        break  
-                else:
-                    print('please try again :)') 
 
-            
-    
-                  
+                    else:
+                        break
+                else:
+                    print('please try again :)')
+
+
+
+
 def main():
     while True:
         city, month, day = get_filters()
