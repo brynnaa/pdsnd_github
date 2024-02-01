@@ -6,7 +6,7 @@
 Explore US Bikeshare Data
 
 ### Description
-This project compares U.S. bikeshare data from three cities, Washington, New York City, and Chicago.
+This project compares U.S. bikeshare data from three cities, Washington, New York City, and Chicago. The project allows for users to input their desired city preferences to pull statistical data from.
 
 ### Files used
 bikeshare.py
@@ -15,4 +15,4 @@ new_york_city.csv
 washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Thanks to my udacity cohort for helping with any questions along the way.
